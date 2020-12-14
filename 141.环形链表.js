@@ -32,6 +32,7 @@ var hasCycle1 = function(head) {
 };
 // 空间复杂度O(1)
 var hasCycle = function(head) {
+  // 操场跑圈，只要是个圈，跑的快的一定会把跑的慢的套圈
   let slow = head;
   let fast = head;
   while(fast?.next) {
