@@ -25,6 +25,29 @@ class LinkNodeList {
     this.length += 1;
   }
 
+  // 删除
+  removeAt(index) {
+    let cur = this.head;
+    if (index === 0) {
+      this.head = cur.next;
+      cur.next = null;
+      this.length -= 1;
+      return;
+    }
+    if (index < this.length) {
+      let i = 0;
+      let pre = null;
+      while (i < index) {
+        pre = cur;
+        cur = cur.next;
+        i++;
+      }
+      pre.next = cur.next;
+      cur.next = null;
+      this.length -= 1;
+    }
+  }
+
   // 打印
   print() {
     let cur = this.head;
@@ -41,5 +64,7 @@ class LinkNodeList {
 const linkNode = new LinkNodeList();
 linkNode.append('hello');
 linkNode.append('world');
-linkNode.append('!');
+linkNode.append('!!!');
+console.log(linkNode.print());
+linkNode.removeAt(1);
 console.log(linkNode.print());
