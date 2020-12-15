@@ -28,12 +28,16 @@ var preorderTraversal1 = function(root, arr = []) {
 
 // 迭代
 var preorderTraversal = function(root) {
+  // 开始遍历 有一个stack存储
+  // left入栈，直到left为空
+  // 节点出栈，right为目标节点
   const res = [];
   const stack = [];
   let cur = root;
   while(cur || stack.length > 0) {
     while(cur) {
       res.push(cur.val);
+      // 后面要通过cur找他的right
       stack.push(cur);
       cur = cur.left;
     }
